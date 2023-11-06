@@ -28,6 +28,14 @@ lazy.setup({
     "sheerun/vim-polyglot",
     "tpope/vim-repeat",
     "Joe-Withey/v-star",
+    {
+        "karb94/neoscroll.nvim",
+        config = function ()
+            require('neoscroll').setup {
+                easing_function = "cubic"
+            }
+        end
+    },
     "mhinz/vim-startify",
     {
         "nvim-treesitter/nvim-treesitter",
