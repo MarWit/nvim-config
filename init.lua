@@ -1,0 +1,5 @@
+require'global'
+require'autocmd'
+require'plugins'
+require'plugins-config'
+require'keybindings'
