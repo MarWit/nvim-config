@@ -5,7 +5,8 @@ configs.setup {
         'lua',
         'vim',
         'c_sharp',
-        'rust'
+        'rust',
+        'python',
     },
     sync_install = false,
     highlight = { enable = true },

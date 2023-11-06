@@ -37,6 +37,7 @@ local ensure_installed = {
     "clangd",
     "clangd",
     "csharp_ls",
+    "pyright",
 }
 
 require("mason").setup()
