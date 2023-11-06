@@ -18,3 +18,14 @@ autocmd('InsertLeave', {
     pattern = '*',
     command = 'match ExtraWhitespace /\\s\\+$/'
 })
+
+-- Save cursor position
+autocmd('BufReadPost', {
+    pattern = '*',
+    callback = function()
+        local line = vim.fn.line("'\"")
+        if line > 1 and line < vim.fn.line("$") then
+            vim.cmd([[ exe "normal! g`\"" ]])
+        end
+    end
+})
