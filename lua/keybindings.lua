@@ -76,4 +76,28 @@ nnoremap('<leader>gs', function() require('fzf-lua').git_status() end)
 
 -- Snippet expand
 inoremap('<C-k>', function() require('luasnip').expand_or_jump() end)
+
+-- Undo Tree
+nnoremap('<leader>u', ':UndotreeToggle<CR>', true)
+
+-- Hover doc
+nnoremap('K', '<cmd>Lspsaga hover_doc<CR>')
+
+-- Outline
+nnoremap('<leader>.', '<cmd>Lspsaga outline<CR>')
+
+-- Go to definition
+nnoremap('gd', '<cmd>Lspsaga goto_definition<CR>')
+
+-- Peek definition
+nnoremap('<localleader>p', '<cmd>Lspsaga peek_definition<CR>')
+
+-- Rename symbol
+nnoremap('<localleader>r', '<cmd>Lspsaga rename<CR>')
+
+-- References
+nnoremap('<localleader>f', '<cmd>Lspsaga finder<CR>')
+
+-- Code action
+nnoremap('<localleader>\\', '<cmd>Lspsaga code_action<CR>')
 -- ]]

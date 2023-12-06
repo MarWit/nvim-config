@@ -98,5 +98,14 @@ lazy.setup({
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
         }
+    },
+    {
+        "nvimdev/lspsaga.nvim",
+        config = true,
+        opts = {
+            lightbulb = {
+                enable = false,
+            },
+        }
     }
 }, lazy_config)
