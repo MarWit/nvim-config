@@ -61,12 +61,18 @@ end
 
 -- Fuzzy-finding
 nnoremap('<leader>f', function() require('fzf-lua').files() end, true)
+nnoremap('<leader>b', function() require('fzf-lua').buffers() end, true)
+nnoremap('<leader>r', function() require('fzf-lua').live_grep() end, true)
+nnoremap('<localleader>s', function() require('fzf-lua').lsp_live_workspace_symbols() end, true)
 
 -- File explorer
 nnoremap('<leader>,', ':NvimTreeToggle<CR>', true)
 
 -- Git blame
 nnoremap('<leader>gb', function() package.loaded.gitsigns.blame_line() end)
+
+-- Git status
+nnoremap('<leader>gs', function() require('fzf-lua').git_status() end)
 
 -- Snippet expand
 inoremap('<C-k>', function() require('luasnip').expand_or_jump() end)
