@@ -27,6 +27,24 @@ cmp.setup({
                 fallback()
             end
         end),
+        ["<C-n>"] = cmp.mapping({
+            i = function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                else
+                    fallback()
+                end
+            end
+        }),
+        ["<C-p>"] = cmp.mapping({
+            i = function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                else
+                    fallback()
+                end
+            end
+        }),
         ["<C-k>"] = cmp.mapping.confirm({ select = true })
     }
 })
