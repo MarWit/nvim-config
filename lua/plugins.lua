@@ -64,6 +64,7 @@ lazy.setup({
            vim.g.cursorword_disable_at_startup = false
        end
     },
+    "HiPhish/rainbow-delimiters.nvim",
     "sQVe/sort.nvim",
     {
         "nvim-lualine/lualine.nvim",
