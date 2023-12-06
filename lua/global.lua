@@ -22,3 +22,4 @@ opt.hidden = true
 opt.cursorline = true
 opt.incsearch = true
 opt.undofile = true
+opt.timeoutlen = 200
