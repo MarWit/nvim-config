@@ -55,6 +55,12 @@ lazy.setup({
             }
         }
     },
+    {
+        "kylechui/nvim-surround",
+        version = "*",
+        event = "VeryLazy",
+        config = true,
+    },
     "mbbill/undotree",
     {
         "ibhagwan/fzf-lua",
