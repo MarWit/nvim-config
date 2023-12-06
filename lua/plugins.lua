@@ -1,8 +1,13 @@
 -- Default plug-ins path
 local plugins_path = vim.fn.stdpath("config") .. "/plug-ins"
 
--- Add lazy.nvim to namespace
+-- Install lazy.nvim if its not installed yet
 local lazynvim_path = plugins_path .. "/lazy.nvim"
+if vim.fn.isdirectory(lazynvim_path) == 0 then
+    vim.fn.system(('git clone "https://github.com/folke/lazy.nvim" %s'):format(lazynvim_path))
+end
+
+-- Add lazy.nvim to namespace
 vim.opt.rtp:prepend(lazynvim_path)
 local lazy = require("lazy")
 
