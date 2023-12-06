@@ -58,6 +58,12 @@ lazy.setup({
         "folke/which-key.nvim",
         config = true,
     },
+    {
+       "xiyaowong/nvim-cursorword",
+       init = function()
+           vim.g.cursorword_disable_at_startup = false
+       end
+    },
     "sQVe/sort.nvim",
     {
         "nvim-lualine/lualine.nvim",
