@@ -65,6 +65,7 @@ lazy.setup({
        end
     },
     "HiPhish/rainbow-delimiters.nvim",
+    "monaqa/dial.nvim",
     "sQVe/sort.nvim",
     {
         "nvim-lualine/lualine.nvim",
