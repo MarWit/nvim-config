@@ -86,6 +86,7 @@ lazy.setup({
         build = "make install_jsregexp"
     },
     "neovim/nvim-lspconfig",
+    "mfussenegger/nvim-lint",
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
