@@ -82,6 +82,15 @@ lazy.setup({
         event = "VeryLazy",
         config = true,
     },
+    {
+        "numToStr/Comment.nvim",
+        config = function()
+            require('Comment').setup()
+
+            local ft = require('Comment.ft')
+            ft.set('repl', {'// %s', '/*%s*/'})
+        end
+    },
     "mbbill/undotree",
     {
         "ibhagwan/fzf-lua",
