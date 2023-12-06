@@ -1,10 +1,10 @@
 -- [Boilerplate...]
 -- [[
-local wrap_map = function(mode, opts, silent)
+local wrap_map = function(mode, opts)
     local use_opts = opts and vim.deepcopy(opts) or {}
-    use_opts['silent'] = silent and silent or false
-    return function(mapping, handler)
-        vim.keymap.set(mode, mapping, handler, opts)
+    return function(mapping, handler, silent)
+        use_opts['silent'] = silent and silent or false
+        vim.keymap.set(mode, mapping, handler, use_opts)
     end
 end
 
