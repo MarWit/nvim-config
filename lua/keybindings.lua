@@ -45,8 +45,8 @@ nnoremap('j', 'gj', true)
 nnoremap('k', 'gk', true)
 
 -- Sorting
-nnoremap('<leader>s', ':sort<CR>', true)
-vnoremap('<leader>s', ':sort<CR>', true)
+nnoremap('<leader>s', '<Cmd>Sort<CR>', true)
+vnoremap('<leader>s', '<Esc><Cmd>Sort<CR>', true)
 
 -- Folds
 nnoremap('<Space>', 'za', true)
