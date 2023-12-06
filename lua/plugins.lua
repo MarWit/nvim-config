@@ -54,6 +54,10 @@ lazy.setup({
         "NvChad/nvim-colorizer.lua",
         config = true,
     },
+    {
+        "folke/which-key.nvim",
+        config = true,
+    },
     "sQVe/sort.nvim",
     {
         "nvim-lualine/lualine.nvim",
