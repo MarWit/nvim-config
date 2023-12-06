@@ -35,11 +35,10 @@ lazy.setup({
     "Joe-Withey/v-star",
     {
         "karb94/neoscroll.nvim",
-        config = function ()
-            require('neoscroll').setup {
-                easing_function = "cubic"
-            }
-        end
+        config = true,
+        opts = {
+            easing_function = "cubic"
+        }
     },
     "mhinz/vim-startify",
     {
@@ -48,13 +47,12 @@ lazy.setup({
     },
     {
         "nvim-lualine/lualine.nvim",
-        config = function()
-            require('lualine').setup {
-                tabline = {
-                    lualine_a = { 'buffers' }
-                }
+        config = true,
+        opts = {
+            tabline = {
+                lualine_a = { 'buffers' }
             }
-        end
+        }
     },
     "mbbill/undotree",
     {
@@ -64,16 +62,12 @@ lazy.setup({
     {
         "nvim-tree/nvim-tree.lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require('nvim-tree').setup()
-        end
+        config = true,
     },
     "tpope/vim-fugitive",
     {
         "lewis6991/gitsigns.nvim",
-        config = function()
-            require('gitsigns').setup()
-        end
+        config = true,
     },
 
     -- Autocompletion
