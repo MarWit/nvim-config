@@ -12,6 +12,8 @@ opt.expandtab = true
 opt.shiftround = true
 
 -- Misc
+opt.spell = true
+opt.splitright = true
 opt.foldlevel = 999
 opt.termguicolors = true
 opt.signcolumn = 'yes'
