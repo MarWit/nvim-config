@@ -138,5 +138,6 @@ lazy.setup({
                 enable = false,
             },
         }
-    }
+    },
+    "folke/trouble.nvim",
 }, lazy_config)
