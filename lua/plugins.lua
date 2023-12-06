@@ -34,6 +34,11 @@ lazy.setup({
     "tpope/vim-repeat",
     "Joe-Withey/v-star",
     {
+        "ellisonleao/glow.nvim",
+        config = true,
+        cmd = "Glow",
+    },
+    {
         "karb94/neoscroll.nvim",
         config = true,
         opts = {
