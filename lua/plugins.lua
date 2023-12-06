@@ -88,6 +88,10 @@ lazy.setup({
     "neovim/nvim-lspconfig",
     "mfussenegger/nvim-lint",
     {
+        "ray-x/lsp_signature.nvim",
+        config = true,
+    },
+    {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
