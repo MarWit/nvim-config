@@ -102,6 +102,7 @@ lazy.setup({
         config = true,
     },
     "tpope/vim-fugitive",
+    "junegunn/gv.vim",
     {
         "lewis6991/gitsigns.nvim",
         config = true,
