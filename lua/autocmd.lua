@@ -46,3 +46,15 @@ autocmd('BufNewFile', {
     pattern = '*.sh',
     callback = add_shebang('#!/bin/bash')
 })
+
+-- .robot for Robot Framework files
+autocmd({'BufNewFile', 'BufRead'}, {
+    pattern = '*.robot',
+    command = 'set ft=robot',
+})
+
+-- .repl for Renode Platform files
+autocmd({'BufNewFile', 'BufRead'}, {
+    pattern = '*.repl',
+    command = 'set ft=repl',
+})
