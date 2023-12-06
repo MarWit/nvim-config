@@ -50,6 +50,10 @@ lazy.setup({
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
     },
+    {
+        "NvChad/nvim-colorizer.lua",
+        config = true,
+    },
     "sQVe/sort.nvim",
     {
         "nvim-lualine/lualine.nvim",
