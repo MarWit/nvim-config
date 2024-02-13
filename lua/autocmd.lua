@@ -59,6 +59,18 @@ autocmd({'BufNewFile', 'BufRead'}, {
     command = 'set ft=repl',
 })
 
+-- .resc for Renode Scripts
+autocmd({'BufNewFile', 'BufRead'}, {
+    pattern = '*.resc',
+    command = 'set ft=resc',
+})
+
+-- .envrc is envrc
+autocmd({'BufNewFile', 'BufRead'}, {
+    pattern = '.envrc',
+    command = 'set ft=envrc',
+})
+
 -- Diagnostics symbols
 autocmd('ColorScheme', {
     pattern = '*',
