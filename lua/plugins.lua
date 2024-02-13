@@ -111,14 +111,14 @@ lazy.setup({
             ft.set('repl', {'// %s', '/*%s*/'})
         end
     },
-    "mbbill/undotree",
     {
-        "ibhagwan/fzf-lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        "nvim-tree/nvim-web-devicons",
+        tag = "nerd-v2-compat",
     },
+    "mbbill/undotree",
+    "ibhagwan/fzf-lua",
     {
         "nvim-tree/nvim-tree.lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = true,
     },
     "tpope/vim-fugitive",
