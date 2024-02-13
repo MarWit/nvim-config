@@ -46,6 +46,9 @@ vnoremap('/', '/\\v')
 nnoremap('j', 'gj', true)
 nnoremap('k', 'gk', true)
 
+-- Remap digraph keybinding
+inoremap('<C-y>', '<C-k>', true)
+
 -- Sorting
 nnoremap('<leader>s', '<Cmd>Sort<CR>', true)
 vnoremap('<leader>s', '<Esc><Cmd>Sort<CR>', true)
