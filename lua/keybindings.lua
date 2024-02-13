@@ -13,6 +13,7 @@ local vmap = wrap_map('v')
 local imap = wrap_map('i')
 local xmap = wrap_map('x')
 local tmap = wrap_map('t')
+local smap = wrap_map('s')
 
 local noremap_opts = { noremap = true }
 local nnoremap = wrap_map('n', noremap_opts)
@@ -20,6 +21,7 @@ local vnoremap = wrap_map('v', noremap_opts)
 local inoremap = wrap_map('i', noremap_opts)
 local xnoremap = wrap_map('x', noremap_opts)
 local tnoremap = wrap_map('t', noremap_opts)
+local snoremap = wrap_map('s', noremap_opts)
 -- ]]
 
 -- [Setup mapleader]
@@ -76,6 +78,8 @@ nnoremap('<leader>gs', function() require('fzf-lua').git_status() end)
 
 -- Snippet expand
 inoremap('<C-k>', function() require('luasnip').expand_or_jump() end)
+snoremap('<C-n>', function() require('luasnip').jump(1) end)
+snoremap('<C-p>', function() require('luasnip').jump(-1) end)
 
 -- Undo Tree
 nnoremap('<leader>u', ':UndotreeToggle<CR>', true)
