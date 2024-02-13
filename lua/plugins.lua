@@ -137,7 +137,10 @@ lazy.setup({
         build = "make install_jsregexp",
         config = function()
             require("luasnip.loaders.from_snipmate").lazy_load()
-        end
+        end,
+        dependencies = {
+            "saadparwaiz1/cmp_luasnip",
+        },
     },
     "neovim/nvim-lspconfig",
     "mfussenegger/nvim-lint",
