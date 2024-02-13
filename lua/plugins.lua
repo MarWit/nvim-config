@@ -179,4 +179,12 @@ lazy.setup({
             "nvim-lua/plenary.nvim"
         },
     },
+    {
+        "echasnovski/mini.indentscope",
+        version = false,
+        setup = true,
+        opts = {
+            symbol = '|',
+        },
+    },
 }, lazy_config)
