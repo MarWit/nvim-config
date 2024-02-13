@@ -166,7 +166,12 @@ lazy.setup({
             },
         }
     },
-    "folke/trouble.nvim",
+    {
+        "folke/trouble.nvim",
+        opts = {
+            mode = 'document_diagnostics',
+        },
+    },
     {
         "folke/todo-comments.nvim",
         config = true,
