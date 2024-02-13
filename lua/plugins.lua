@@ -65,7 +65,27 @@ lazy.setup({
        end
     },
     "HiPhish/rainbow-delimiters.nvim",
-    "monaqa/dial.nvim",
+    {
+        "monaqa/dial.nvim",
+        config = function()
+            local augend = require("dial.augend")
+            local default = require("dial.config").augends.group.default
+            require("dial.config").augends:on_filetype {
+                cs = {
+                    augend.constant.new {
+                        elements = { "public", "private", "protected" },
+                    },
+                    augend.constant.new {
+                        elements = { "true", "false" },
+                    },
+                    augend.constant.new {
+                        elements = { "&&", "||" },
+                    },
+                    unpack(default),
+                },
+            }
+        end
+    },
     "sQVe/sort.nvim",
     {
         "nvim-lualine/lualine.nvim",
