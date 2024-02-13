@@ -111,4 +111,8 @@ nnoremap('<localleader>\\', '<cmd>Lspsaga code_action<CR>')
 -- Use dial.nvim
 nnoremap('<C-a>', function() require("dial.map").manipulate("increment", "normal") end)
 nnoremap('<C-x>', function() require("dial.map").manipulate("decrement", "normal") end)
+
+-- Jump TODOs
+nnoremap(']t', function() require('todo-comments').jump_next() end, true)
+nnoremap('[t', function() require('todo-comments').jump_prev() end, true)
 -- ]]

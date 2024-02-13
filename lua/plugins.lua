@@ -167,4 +167,11 @@ lazy.setup({
         }
     },
     "folke/trouble.nvim",
+    {
+        "folke/todo-comments.nvim",
+        config = true,
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        },
+    },
 }, lazy_config)
