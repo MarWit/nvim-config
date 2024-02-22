@@ -137,6 +137,11 @@ lazy.setup({
             mappings = true,
         }
     },
+    {
+        'mrcjkb/haskell-tools.nvim',
+        version = '^3',
+        ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
+    },
 
     -- Autocompletion
     "williamboman/mason.nvim",
