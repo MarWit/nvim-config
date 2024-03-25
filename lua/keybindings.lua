@@ -84,6 +84,10 @@ nnoremap('<leader>gb', function() package.loaded.gitsigns.blame_line() end)
 -- Git status
 nnoremap('<leader>gs', function() require('fzf-lua').git_status() end)
 
+-- Jump between git changes
+nnoremap(']g', package.loaded.gitsigns.next_hunk, true)
+nnoremap('[g', package.loaded.gitsigns.prev_hunk, true)
+
 -- Snippet expand
 inoremap('<C-k>', function() require('luasnip').expand_or_jump() end)
 snoremap('<C-n>', function() require('luasnip').jump(1) end)
