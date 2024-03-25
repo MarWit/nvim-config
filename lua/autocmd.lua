@@ -15,14 +15,21 @@ local add_shebang = (function(bang)
     end
 end)
 
--- Highlight trailing spaces
+-- Highlight trailing spaces and tabs
 autocmd('ColorScheme', {
     pattern = '*',
-    command = 'highlight ExtraWhitespace ctermbg=red guibg=red'
+    command = [[
+        highlight ExtraWhitespace guibg=red
+        highlight TabsBad guifg=#4C304B gui=underdashed
+    ]]
 })
-autocmd('InsertLeave', {
+
+autocmd({'BufReadPost', 'InsertLeave'}, {
     pattern = '*',
-    command = 'match ExtraWhitespace /\\s\\+$/'
+    callback = function()
+        vim.fn.matchadd('ExtraWhitespace', '\\s\\+$')
+        vim.fn.matchadd('TabsBad', '\\t')
+    end
 })
 
 -- Save cursor position
