@@ -68,6 +68,11 @@ end
 nnoremap('<leader>f', function() require('fzf-lua').files() end, true)
 nnoremap('<leader>b', function() require('fzf-lua').buffers() end, true)
 nnoremap('<leader>r', function() require('fzf-lua').live_grep() end, true)
+vnoremap('<leader>r', function()
+    vim.cmd.normal{ '"vy', bang = true }
+    local visual = vim.fn.getreg('v')
+    require('fzf-lua').live_grep({search = visual})
+end, true)
 nnoremap('<localleader>s', function() require('fzf-lua').lsp_live_workspace_symbols() end, true)
 
 -- File explorer
