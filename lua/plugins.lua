@@ -194,4 +194,9 @@ lazy.setup({
             symbol = '|',
         },
     },
+    {
+        "echasnovski/mini.align",
+        config = true,
+        version = false
+    },
 }, lazy_config)
