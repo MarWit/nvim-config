@@ -172,15 +172,7 @@ lazy.setup({
             "lukas-reineke/cmp-under-comparator",
         }
     },
-    {
-        "nvimdev/lspsaga.nvim",
-        config = true,
-        opts = {
-            lightbulb = {
-                enable = false,
-            },
-        }
-    },
+    "nvimdev/lspsaga.nvim",
     {
         "folke/trouble.nvim",
         opts = {
