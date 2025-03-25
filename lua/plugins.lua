@@ -163,6 +163,7 @@ lazy.setup({
         "ray-x/lsp_signature.nvim",
         config = true,
     },
+    "Hoffs/omnisharp-extended-lsp.nvim",
     {
         "hrsh7th/nvim-cmp",
         dependencies = {

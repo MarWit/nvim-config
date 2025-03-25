@@ -62,14 +62,22 @@ cmp.setup({
     }
 })
 
-local ensure_installed = {
-    "lua_ls",
-    "rust_analyzer",
-    "clangd",
-    "clangd",
-    "csharp_ls",
-    "pyright",
+local lsp_sources = {
+    -- package = default_configuration:bool
+    lua_ls = true,
+    rust_analyzer = true,
+    clangd = true,
+    pyright = true,
+    svelte = true,
+    ts_ls = true,
+    omnisharp = false,
 }
+
+local ensure_installed = {}
+for package, _ in pairs(lsp_sources)
+do
+    table.insert(ensure_installed, package)
+end
 
 require("mason").setup()
 require("mason-lspconfig").setup {
@@ -79,7 +87,41 @@ require("mason-lspconfig").setup {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
-for _, server in pairs(ensure_installed)
+for server, should_setup in pairs(lsp_sources)
 do
-    lspconfig[server].setup { capabilities = capabilities }
+    if should_setup then
+        lspconfig[server].setup { capabilities = capabilities }
+    end
 end
+
+-- Custom language servers
+-- | C#
+local capabilities_without_semantic_tokens = vim.deepcopy(capabilities)
+capabilities_without_semantic_tokens.textDocument.semanticTokens = vim.NIL
+
+lspconfig.omnisharp.setup {
+    handlers = {
+        ["textDocument/definition"] = require('omnisharp_extended').handler,
+        ["textDocument/semanticTokens"] = function() end,
+    },
+    capabilities = capabilities_without_semantic_tokens,
+    on_new_config = function(new_config, root_dir)
+        -- HACK: Check if we are in Renode directory, and try to use Renode_NET.sln
+        local renode_project = root_dir .. '/Renode_NET.sln'
+        if vim.fn.filereadable(renode_project) ~= 0 then
+            vim.list_extend(new_config.cmd, { '-s', renode_project })
+        end
+
+        -- NOTE: Load omnisharp.json if exists
+        local omnisharp_json = root_dir .. '/omnisharp.json'
+        if vim.fn.filereadable(omnisharp_json) ~= 0 then
+            local settings_str = io.input(omnisharp_json):read('a')
+            local settings = vim.json.decode(settings_str)
+            new_config.settings = vim.tbl_deep_extend('keep', new_config.settings, settings)
+        end
+
+        -- NOTE: Run default on_new_config
+        local default_config = lspconfig.omnisharp.config_def.default_config
+        return default_config.on_new_config(new_config, root_dir)
+    end,
+}
