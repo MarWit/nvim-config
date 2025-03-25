@@ -142,6 +142,7 @@ lazy.setup({
         version = '^3',
         ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
     },
+    "carbon-steel/detour.nvim",
 
     -- Autocompletion
     "williamboman/mason.nvim",

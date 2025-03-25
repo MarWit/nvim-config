@@ -84,6 +84,17 @@ nnoremap('<leader>gb', function() package.loaded.gitsigns.blame_line() end)
 -- Git status
 nnoremap('<leader>gs', function() require('fzf-lua').git_status() end)
 
+-- Open Git in floating window
+nnoremap('<localleader>g', function()
+    vim.cmd(':Git')
+
+    local git_win = vim.api.nvim_get_current_win()
+    local ok = require('detour').Detour()
+    if ok then
+        vim.api.nvim_win_close(git_win, false)
+    end
+end)
+
 -- Jump between git changes
 nnoremap(']g', package.loaded.gitsigns.next_hunk, true)
 nnoremap('[g', package.loaded.gitsigns.prev_hunk, true)
