@@ -99,6 +99,14 @@ end)
 nnoremap(']g', package.loaded.gitsigns.next_hunk, true)
 nnoremap('[g', package.loaded.gitsigns.prev_hunk, true)
 
+-- Jump between errors
+nnoremap(']e', function()
+    vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR, wrap = true }
+end, true)
+nnoremap('[e', function()
+    vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR, wrap = true }
+end, true)
+
 -- Snippet expand
 inoremap('<C-k>', function() require('luasnip').expand_or_jump() end)
 snoremap('<C-n>', function() require('luasnip').jump(1) end)
