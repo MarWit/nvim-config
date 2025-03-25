@@ -1,0 +1,17 @@
+snippet tty
+    emulation CreateUartPtyTerminal "${1:tty-term}" @${2:/tmp/renode.uart} True
+    connector Connect ${3:uart} "$1"
+
+snippet tty-socket
+    emulation CreateServerSocketTerminal ${1:3456} "${2:sock-term}"
+    connector Connect ${3:uart} "$2"
+
+snippet gdb
+    machine StartGdbServer ${1:3333}
+
+snippet shortcircuit-arm
+    ${1:cpu} AddHook \`sysbus GetSymbolAddress "$2"\`
+    """
+    cpu.SetRegisterUnsafeUlong(0, ${3:0})
+    cpu.PC = cpu.LR
+    """

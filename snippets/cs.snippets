@@ -1,0 +1,91 @@
+snippet     rflag
+    .WithFlag(${1:index}, name: "${2:name}")
+
+snippet     rflags
+    .WithFlags(${1:start}, ${2:num}, name: "${3:name}")
+
+snippet     rres
+    .WithReservedBits(${1:start}, ${2:num})
+
+snippet     rtag
+    .WithTag("${1:name}", ${2:start}, ${3:num})
+
+snippet     rftag
+    .WithTaggedFlag("${1:name}", ${2:index})
+
+snippet     rvalue
+    .WithValueField(${1:start}, ${2:width}, name: "${3:name}")
+
+snippet     renum
+    .WithEnumField<DoubleWordRegister, ${1:enumType}>(${2:start}, ${3:width}, name: "${4:name}")
+
+snippet     fname
+    `expand('%:t:r')`
+
+snippet     namespace
+    namespace Antmicro.Renode.`substitute(expand('%:h'), '^.*Peripherals/', 'Peripherals.', '')`
+    {
+    }
+
+snippet license
+    //
+    // Copyright (c) 2010-`strftime("%Y")` Antmicro
+    //
+    // This file is licensed under the MIT License.
+    // Full license text is available in 'licenses/MIT.txt'.
+    //
+
+snippet bolierplate
+    //
+    // Copyright (c) 2010-`strftime("%Y")` Antmicro
+    //
+    // This file is licensed under the MIT License.
+    // Full license text is available in 'licenses/MIT.txt'.
+    //
+
+    namespace Antmicro.Renode.`substitute(expand('%:h'), '^.*Peripherals/', 'Peripherals.', '')`
+    {
+        public class `expand('%:t:r')`
+        {
+            public `expand('%:t:r')`()
+            {
+
+            }
+        }
+    }
+
+snippet class
+    public class `expand('%:t:r')`
+    {
+        public `expand('%:t:r')`()
+        {
+
+        }
+    }
+
+snippet regcol
+    public ${1:uint} Read${2:DoubleWord}(long offset)
+    {
+        return RegistersCollection.Read(offset);
+    }
+
+    public void Write${2}(long offset, ${1} value)
+    {
+        RegistersCollection.Write(offset, value);
+    }
+
+    public ${2}RegisterCollection RegistersCollection { get; }
+
+snippet regcol2
+    public ${1:uint} Read${2:DoubleWord}(long offset)
+    {
+        return ${3:registersCollection}.Read(offset);
+    }
+
+    public void Write${2}(long offset, ${1} value)
+    {
+        ${3}.Write(offset, value);
+    }
+
+    private readonly ${2}RegisterCollection ${3};
+    ${2}RegisterCollection IProvidesRegistersCollection<${2}RegisterCollection>.RegistersCollection => ${3};
