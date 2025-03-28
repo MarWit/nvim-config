@@ -21,6 +21,7 @@ autocmd('ColorScheme', {
     command = [[
         highlight ExtraWhitespace guibg=red
         highlight TabsBad guifg=#4C304B gui=underdashed
+        highlight CorrectFormatting gui=reverse
     ]]
 })
 
@@ -29,6 +30,7 @@ autocmd({'BufReadPost', 'InsertLeave'}, {
     callback = function()
         vim.fn.matchadd('ExtraWhitespace', '\\s\\+$')
         vim.fn.matchadd('TabsBad', '\\t')
+        vim.fn.matchadd('CorrectFormatting', ',[^ \\r]\\+')
     end
 })
 
