@@ -46,6 +46,12 @@ vnoremap('/', '/\\v')
 nnoremap('j', 'gj', true)
 nnoremap('k', 'gk', true)
 
+-- Move line up and down
+nnoremap('<A-j>', ':m+<CR>', true)
+nnoremap('<A-k>', ':m--<CR>', true)
+vnoremap('<A-j>', ":m'>+<CR>gv", true)
+vnoremap('<A-k>', ":m'<--<CR>gv", true)
+
 -- Remap digraph keybinding
 inoremap('<C-y>', '<C-k>', true)
 
