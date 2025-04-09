@@ -149,4 +149,7 @@ nnoremap('<C-x>', function() require("dial.map").manipulate("decrement", "normal
 -- Jump TODOs
 nnoremap(']t', function() require('todo-comments').jump_next() end, true)
 nnoremap('[t', function() require('todo-comments').jump_prev() end, true)
+
+-- Don't jump on *
+nnoremap('*', '*<C-o>', true)
 -- ]]
