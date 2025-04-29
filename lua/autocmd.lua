@@ -90,3 +90,25 @@ autocmd('ColorScheme', {
         vim.cmd([[ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl= ]])
     end
 })
+
+-- Allow for <path>:<line> vim argument
+autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = '*:*',
+    callback = vim.schedule_wrap(function()
+        local file = vim.fn.expand('%')
+        if vim.fn.filereadable(file) ~= 0 then
+            return
+        end
+
+        local _, _, filepath, line_no = file:find('^(.+):(%d+)$')
+
+        if vim.fn.filereadable(filepath) == 0 then
+            return
+        end
+
+        local bufnr = vim.fn.bufnr('%')
+        vim.cmd.bwipeout(bufnr)
+        vim.cmd('keepalt edit ' .. filepath)
+        vim.api.nvim_win_set_cursor(0, { tonumber(line_no), 0 })
+    end)
+})
