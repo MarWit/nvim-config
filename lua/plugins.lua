@@ -201,4 +201,9 @@ lazy.setup({
         config = true,
         version = false
     },
+    {
+        'echasnovski/mini.pairs',
+        config = true,
+        version = false
+    },
 }, lazy_config)
