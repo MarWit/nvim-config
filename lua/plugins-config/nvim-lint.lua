@@ -6,6 +6,8 @@ lint.linters_by_ft = {
   rust = {'typos', },
   markdown = {'languagetool', },
   rst = {'languagetool', },
+  treesitter = {'treesitter', },
+  sh = {'shellcheck', },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
