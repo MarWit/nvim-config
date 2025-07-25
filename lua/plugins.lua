@@ -206,4 +206,10 @@ lazy.setup({
         config = true,
         version = false
     },
+    {
+        'jpalardy/vim-slime',
+        init = function()
+            vim.g.slime_target = 'tmux'
+        end
+    },
 }, lazy_config)
